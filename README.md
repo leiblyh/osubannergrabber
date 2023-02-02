@@ -1,2 +1,3 @@
 # osu! Banner Grabber
-Tool used to grab banners from beatmap IDs. 
+Simple Java-based script used to grab the banner associated with a given beatmap ID.
+(Make sure you are using the beatmap set ID, not the difficulty ID!)
