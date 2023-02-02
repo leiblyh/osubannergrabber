@@ -4,20 +4,24 @@ import java.util.Scanner;
 
 /**
  * Grabs and saves the banner image associated with a given beatmap ID.
- * @author - Hunter Leibly
+ * @author - Leebs
  */
 public class BeatmapBannerGrabber {
     public static void main(String[] args) {
         try {
             final int byteSize = 2048;
-            String directory = System.getProperty("user.dir") + "\\backgrounds\\";
+            File directory = new File(System.getProperty("user.dir") + "\\backgrounds\\");
+            if(!directory.exists()){
+                directory.mkdir();
+            }
             Scanner scanner = new Scanner(System.in);
             System.out.print("Please enter an osu! beatmap ID: ");
             int id = Integer.parseInt(scanner.nextLine());
             URL url = new URL("https://assets.ppy.sh/beatmaps/" + id + "/covers/cover.jpg");
+            System.out.println(url.toString());
 
             InputStream is = url.openStream();
-            OutputStream os = new FileOutputStream(directory + id + ".jpg");
+            OutputStream os = new FileOutputStream(directory.toString() + "\\" + id + ".jpg");
 
             byte[] b = new byte[byteSize];
             int length;
@@ -34,7 +38,7 @@ public class BeatmapBannerGrabber {
         } catch (NumberFormatException e) {
             System.out.println("The ID you entered was invalid.");
         } catch (IOException e) {
-            System.out.println("An unknown error has occured.");
+            System.out.println("An unknown error has occurred.");
         }
     }
 }
