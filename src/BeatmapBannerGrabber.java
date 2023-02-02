@@ -3,8 +3,9 @@ import java.net.URL;
 import java.util.Scanner;
 
 /**
- * Grabs and saves the banner image associated with a given beatmap ID.
- * @author - Leebs
+ * Grabs and saves the banner image associated with a given beatmap ID
+ * Make sure to use the beatmap set ID, not the difficulty ID.
+ * @author - Hunter Leibly
  */
 public class BeatmapBannerGrabber {
     public static void main(String[] args) {
